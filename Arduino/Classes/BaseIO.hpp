@@ -26,6 +26,8 @@ class BaseIO
         
         virtual void setup() = 0;
         
+        int get_pin(){return m_PIN;}
+        int get_ID(){return m_ID;}
         int get_state(){return m_state;}
 
     protected:
