@@ -13,7 +13,12 @@ class Base_Actuator : public BaseIO
       Base_Actuator(int PIN) : 
           BaseIO(PIN){setup();}
 
-      virtual void setup(){pinMode(m_PIN, OUTPUT);}
+      virtual void setup(){
+        if(!set){
+          set = true;
+          pinMode(m_PIN, OUTPUT);
+        }
+      }
 
       virtual int write(int val) = 0;
 };

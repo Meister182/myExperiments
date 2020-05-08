@@ -9,19 +9,22 @@ class BaseIO
         BaseIO(int PIN, int ID, int initial_state) : 
         m_PIN{PIN},
         m_ID{ID},
-        m_state{initial_state}
+        m_state{initial_state},
+        set{false}
         {}
 
         BaseIO(int PIN, int ID) : 
         m_PIN{PIN},
         m_ID{ID},
-        m_state{0}
+        m_state{0},
+        set{false}
         {}
 
         BaseIO(int PIN) : 
         m_PIN{PIN},
         m_ID{0},
-        m_state{0}
+        m_state{0},
+        set{false}
         {}
         
         virtual void setup() = 0;
@@ -34,6 +37,7 @@ class BaseIO
         int m_ID;
         int m_PIN;
         int m_state;
+        int set;
 };
 
 #endif

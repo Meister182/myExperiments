@@ -13,7 +13,14 @@ class Analog_Sensor : public Base_Sensor
     Analog_Sensor(int PIN) : 
         Base_Sensor(PIN){}
  
-     virtual int read_method(){return analogRead(m_PIN);}
+    /* Note:
+     *  Analog Input pins are used to measure a voltage. 
+     * Therefore there is no need to set pin mode for 
+     * Analog sensors.
+     */
+    virtual void setup() {}
+
+    virtual int read_method(){return analogRead(m_PIN);}
 };
 
 #endif
