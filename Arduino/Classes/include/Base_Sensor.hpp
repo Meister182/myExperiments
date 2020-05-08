@@ -3,14 +3,14 @@
 
 #include "BaseIO.hpp"
 
-class Sensor: public BaseIO
+class Base_Sensor: public BaseIO
 {
     public:
-      Sensor(int PIN, int ID, int initial_state) : 
+      Base_Sensor(int PIN, int ID, int initial_state) : 
           BaseIO(PIN, ID, initial_state){setup();}
-      Sensor(int PIN, int ID) : 
+      Base_Sensor(int PIN, int ID) : 
           BaseIO(PIN, ID){setup();}
-      Sensor(int PIN) : 
+      Base_Sensor(int PIN) : 
           BaseIO(PIN){setup();}
   
       virtual void setup(){pinMode(m_PIN, INPUT);}

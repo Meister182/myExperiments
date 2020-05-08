@@ -1,17 +1,17 @@
 #ifndef DIGITAL_SENSOR_H
 #define DIGITAL_SENSOR_H
 
-#include "Sensor.hpp"
+#include "Base_Sensor.hpp"
 
-class Digital_Sensor : public Sensor
+class Digital_Sensor : public Base_Sensor
 {
   public:
     Digital_Sensor(int PIN, int ID, int initial_state) : 
-        Sensor(PIN, ID, initial_state){}
+        Base_Sensor(PIN, ID, initial_state){}
     Digital_Sensor(int PIN, int ID) : 
-        Sensor(PIN, ID){}
+        Base_Sensor(PIN, ID){}
     Digital_Sensor(int PIN) : 
-        Sensor(PIN){}
+        Base_Sensor(PIN){}
  
      virtual int read_method(){return digitalRead(m_PIN);}
 };

@@ -1,17 +1,17 @@
 #ifndef DIGITAL_ACTUATOR_H
 #define DIGITAL_ACTUATOR_H
 
-#include "Actuator.hpp"
+#include "Base_Actuator.hpp"
 
-class Digital_Actuator : public Actuator
+class Digital_Actuator : public Base_Actuator
 {
   public:
     Digital_Actuator(int PIN, int ID, int initial_state) : 
-        Actuator(PIN, ID, initial_state){}
+        Base_Actuator(PIN, ID, initial_state){}
     Digital_Actuator(int PIN, int ID) : 
-        Actuator(PIN, ID){}
+        Base_Actuator(PIN, ID){}
     Digital_Actuator(int PIN) : 
-        Actuator(PIN){}
+        Base_Actuator(PIN){}
  
     virtual int write(int val)
     {
