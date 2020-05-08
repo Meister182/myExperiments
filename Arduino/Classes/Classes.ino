@@ -1,15 +1,15 @@
-#include "Digital_Sensor.hpp"
-#include "Analog_Sensor.hpp"
+#include "include/Digital_Sensor.hpp"
+#include "include/Digital_Actuator.hpp"
 
-#include "Digital_Actuator.hpp"
-#include "Analog_Actuator.hpp"
+#include "include/Analog_Sensor.hpp"
+#include "include/Analog_Actuator.hpp"
 
 // (PIN, ID, Initial_State)
-Digital_Sensor btn(13, 1, 0);
+Digital_Sensor btn(11, 1, 0);
 Digital_Actuator D_led(12, 3, 0);
 
 Analog_Sensor pot(0, 2, 0);
-Analog_Actuator A_led(11, 4, 0);
+Analog_Actuator A_led(13, 4, 0);
 
 void setup() {
   Serial.begin(9600);

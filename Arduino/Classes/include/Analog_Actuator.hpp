@@ -1,17 +1,17 @@
 #ifndef ANALOG_ACTUATOR_H
 #define ANALOG_ACTUATOR_H
 
-#include "Actuator.hpp"
+#include "Base_Actuator.hpp"
 
-class Analog_Actuator : public Actuator
+class Analog_Actuator : public Base_Actuator
 {
   public:
     Analog_Actuator(int PIN, int ID, int initial_state) : 
-        Actuator(PIN, ID, initial_state){}
+        Base_Actuator(PIN, ID, initial_state){}
     Analog_Actuator(int PIN, int ID) : 
-        Actuator(PIN, ID){}
+        Base_Actuator(PIN, ID){}
     Analog_Actuator(int PIN) : 
-        Actuator(PIN){}
+        Base_Actuator(PIN){}
  
     virtual int write(int val)
     {
