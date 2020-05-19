@@ -1,0 +1,3 @@
+[submodule "Shell/myAlias"]
+	path = Shell/myAlias
+	url = https://github.com/Meister182/myAlias.git
