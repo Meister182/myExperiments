@@ -15,12 +15,45 @@
 #include "include/Analog_Sensor.hpp"
 #include "include/Analog_Actuator.hpp"
 
-// (PIN, ID, Initial_State)
-Digital_Sensor btn(11, 1, 0);
-Digital_Actuator D_led(12, 3, 0);
+void m_print(int ID, int val);
 
-Analog_Sensor pot(0, 2, 0);
-Analog_Actuator A_led(13, 4, 0);
+// (PIN, ID, Initial_State)
+/* --------- Sensors --------- */
+int num_of_sensors = 2;
+Base_Sensor *Sensors[] = {
+  new Digital_Sensor(11, 1, 0), // button 
+  new Analog_Sensor(0, 2, 0)    // potentiometer
+};
+
+/* --------- Actuators --------- */
+int num_of_actuators = 2;
+Base_Actuator *Actuators[] = {
+  new Digital_Actuator(12, 3, 0),  // on/off led
+  new Analog_Actuator(13, 4, 0)    // pwm led
+};
+
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  // ------------------------------------------
+  // Example:
+  //   Digital In connected to Digital Out
+  //   Analog In connected to Analog Out
+  // ------------------------------------------
+  for(int i=0; i<num_of_sensors; i++)
+  {
+    if(Sensors[i]->read() >= 0)
+    {
+      m_print(Sensors[i]->get_ID(), Sensors[i]->get_state());
+      Actuators[i]->write(Sensors[i]->get_state());
+    }
+  }
+  delay(10);
+}
+
 
 void m_print(int ID, int val)
 {
@@ -28,25 +61,4 @@ void m_print(int ID, int val)
   Serial.print(ID);
   Serial.print(" VAL: ");
   Serial.println(val);
-}
-
-void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-
-  // Digital I/O
-  if(btn.read() >= 0){
-    m_print(btn.get_ID(), btn.get_state());
-    D_led.write(btn.get_state());
-  }
-
-  // Analog I/O
-  if(pot.read() >= 0){
-    m_print(pot.get_ID(), pot.get_state());
-    A_led.write(map(pot.get_state(), 0, 1023, 0, 255));
-  }
-
-  delay(10);
 }

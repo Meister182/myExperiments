@@ -1,5 +1,5 @@
-#ifndef ACTUATOR_H
-#define ACTUATOR_H
+#ifndef BASE_ACTUATOR_H
+#define BASE_ACTUATOR_H
 
 #include "Arduino.h"
 
@@ -20,7 +20,7 @@ class Base_Actuator : public BaseIO
         }
       }
 
-      virtual int write(int val) = 0;
+      virtual void write(int val){};
 };
 
 #endif

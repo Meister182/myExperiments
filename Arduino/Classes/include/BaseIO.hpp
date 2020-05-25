@@ -1,6 +1,9 @@
 #ifndef BASEIO_H
 #define BASEIO_H
 
+#ifndef BASE_IO
+#define BASE_IO
+
 #include "Arduino.h"
 
 class BaseIO

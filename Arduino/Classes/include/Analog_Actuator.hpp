@@ -13,7 +13,7 @@ class Analog_Actuator : public Base_Actuator
     Analog_Actuator(int PIN) : 
         Base_Actuator(PIN){}
  
-    virtual int write(int val)
+    virtual void write(int val)
     {
       if(val != m_state && val >= 0 && val <= 255){
         m_state = val;

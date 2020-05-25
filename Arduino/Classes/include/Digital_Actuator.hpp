@@ -13,7 +13,7 @@ class Digital_Actuator : public Base_Actuator
     Digital_Actuator(int PIN) : 
         Base_Actuator(PIN){}
  
-    virtual int write(int val)
+    virtual void write(int val)
     {
       if(val != m_state){
         m_state = val;

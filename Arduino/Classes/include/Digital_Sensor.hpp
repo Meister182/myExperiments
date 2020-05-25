@@ -13,7 +13,7 @@ class Digital_Sensor : public Base_Sensor
     Digital_Sensor(int PIN) : 
         Base_Sensor(PIN){}
  
-     virtual int read_method(){return digitalRead(m_PIN);}
+    virtual int read(){return update_state(digitalRead(m_PIN));}
 };
 
 #endif
